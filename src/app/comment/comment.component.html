@@ -1,0 +1,15 @@
+
+<mat-card-content style="margin-bottom: -35px;">
+    <mat-card-header >
+        <div mat-card-avatar class="example-header-image"[routerLink]="['/users', comment.userId ]" >
+        </div>
+        
+    <mat-form-field  style="width: 700px !important; text-align: left  !important;margin-top:-2px; margin-left: 2px;" appearance="outline" disabled="false">
+
+   <input matInput style="width: 10px !important;" disabled>{{comment.text}}
+   
+</mat-form-field>
+</mat-card-header>
+    
+</mat-card-content>
+

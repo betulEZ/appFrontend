@@ -1,0 +1,58 @@
+<div id="accordion" class="card-wrapper " 
+  style=" 
+   background-color:rgb(232, 234, 245) ;
+    padding: 10px;
+    width:800px; 
+    margin: auto; 
+  " >
+<li *ngFor="let post of posts; let i=index" style="list-style:none">
+  
+<mat-card class="example-card" style="margin-bottom:50px">
+  
+  <mat-card-header >
+    <div mat-card-avatar class="example-header-image"[routerLink]="['/users', post.userId ]" >
+    </div>
+    <mat-card-title>{{post.userName }}</mat-card-title>
+    <mat-card-subtitle>{{post.title }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ post.text }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+
+    <button mat-button (click)="deletePost(post.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+
+      <button   mat-button  type="button" style=" margin-left: auto;"  
+      [attr.data-bs-target]="'#content'+post.id"  data-bs-toggle="collapse" 
+      (click)="getAllComment(post.id); "  >
+        <mat-icon  > insert_comment</mat-icon>
+    </button>
+
+  </mat-card-actions>
+
+ 
+  <div class="collapse multi-target" [attr.id]="'content'+post.id" data-bs-parent="#accordion" >
+    <li *ngFor="let comment of comments" style="list-style:none"  >
+      <div *ngIf="comment.postId==post.id"  >
+     <app-comment [comment]="comment"></app-comment>
+    </div>
+</li>
+<mat-card-content >
+  <mat-form-field class="field2" appearance="outline" >
+      <mat-label>Comment Text</mat-label>
+      <input matInput placeholder="Text" [(ngModel)]="comment.text" >
+      <button mat-raised-button (click)="saveComment(post.id);"  color="primary" style="position: absolute;top: 9px; height: 40px; ; right: 10px; width: 120px!important ;"
+      [disabled]="!comment.text"  >Comment</button>
+    </mat-form-field>
+</mat-card-content>
+</div> 
+
+</mat-card>
+
+
+</li>
+</div>

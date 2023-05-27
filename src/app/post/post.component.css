@@ -1,0 +1,25 @@
+.example-card {
+    max-width:800px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+.prevent-click{
+  pointer-events: none;
+}
+
+button.toggle-panel{
+  pointer-events: auto;
+ 
+}
+.field2{ 
+  width:726px !important;
+  margin-left: 12px;
+  margin-right: 12px;
+  max-lines: 2;
+  font-size: 12px;
+  margin-top: 20px;
+  
+}
